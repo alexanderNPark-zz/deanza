@@ -1,3 +1,20 @@
+// ----------------------------------------------------------------------------------------------
+
+// @version1
+
+// @author  Alexander Park
+
+//  File name:  PropertyList.java
+
+//  Program purpose: A LinkedList (non-generic) that collects properties from the txt file and loads them for the prog.
+
+//  Revision history:
+
+//   Date                  Programmer               Change ID   Description
+
+//   06/1/18            Alexander Park                     ME            Initial implementation
+
+// ----------------------------------------------------------------------------------------------
 
 
 import java.io.BufferedReader;

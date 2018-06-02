@@ -1,3 +1,20 @@
+// ----------------------------------------------------------------------------------------------
+
+// @version1
+
+// @author  Alexander Park
+
+//  File name:  MSListingApp.java
+
+//  Program purpose: A class starting the program that launches MSListingView and initializes PropertyList
+
+//  Revision history:
+
+//   Date                  Programmer               Change ID   Description
+
+//   06/1/18            Alexander Park                     ME            Initial implementation
+
+// ----------------------------------------------------------------------------------------------
 import java.awt.*;
 
 /**

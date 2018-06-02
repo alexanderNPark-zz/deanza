@@ -1,4 +1,20 @@
+// ----------------------------------------------------------------------------------------------
 
+// @version1
+
+// @author  Alexander Park
+
+//  File name:  MSListingView.java
+
+//  Program purpose: The Gui with the panels designed to interact with the users desire to search for properties.
+
+//  Revision history:
+
+//   Date                  Programmer               Change ID   Description
+
+//   06/1/18            Alexander Park                     ME            Initial implementation
+
+// ----------------------------------------------------------------------------------------------
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,20 @@
-import foothill.DoubleUp;
+// ----------------------------------------------------------------------------------------------
+
+// @version1
+
+// @author  Alexander Park
+
+//  File name:  Condo.java
+
+//  Program purpose: Subclass of property for type Condos, has homeowners association fee
+
+//  Revision history:
+
+//   Date                  Programmer               Change ID   Description
+
+//   06/1/18            Alexander Park                     ME            Initial implementation
+
+// ----------------------------------------------------------------------------------------------
 
 /**
  * Created by AlexP on 5/31/2018.
