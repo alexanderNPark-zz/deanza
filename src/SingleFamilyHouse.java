@@ -1,6 +1,20 @@
-/**
- * Created by AlexP on 5/31/2018.
- */
+// ----------------------------------------------------------------------------------------------
+
+// @version1
+
+// @author  Alexander Park
+
+//  File name:  Condo.java
+
+//  Program purpose: Subclass of property for type SFH has backyard
+
+//  Revision history:
+
+//   Date                  Programmer               Change ID   Description
+
+//   06/1/18            Alexander Park                     ME            Initial implementation
+
+// ----------------------------------------------------------------------------------------------
 public class SingleFamilyHouse extends Property{
 
     private int backyardSize;
@@ -15,6 +29,7 @@ public class SingleFamilyHouse extends Property{
         backyardSize = Integer.parseInt(extra);
     }
 
+    //accessors and mutators
     public int getBackyardSize() {
         return backyardSize;
     }

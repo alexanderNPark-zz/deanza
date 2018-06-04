@@ -1,23 +1,36 @@
-import java.io.PrintWriter;
+// ----------------------------------------------------------------------------------------------
 
-/**
- * Created by AlexP on 5/31/2018.
- */
+// @version1
+
+// @author  Alexander Park
+
+//  File name:  Condo.java
+
+//  Program purpose: Property for all property types
+
+//  Revision history:
+
+//   Date                  Programmer               Change ID   Description
+
+//   06/1/18            Alexander Park                     ME            Initial implementation
+
+// ----------------------------------------------------------------------------------------------
 public class Property {
 
-
+    //attributes
     private String address;
     private double offeredPrice;
     private int yearBuilt;
     private Property next = null;
 
-
+    //default constructor
     public Property(){
         address=  "";
         offeredPrice = 0.0;
         yearBuilt = 0;
     }
 
+    //non-default constructor
     public Property(String address, double offeredPrice, int yearBuilt){
         this.address = address;
         this.yearBuilt = yearBuilt;
@@ -25,6 +38,8 @@ public class Property {
 
 
     }
+
+    //accessors, mutators, and overrided equals and toString methods
 
     public void setNext(Property next){
         this.next = next;

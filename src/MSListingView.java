@@ -50,6 +50,7 @@ public class MSListingView extends JFrame {
         activate();
     }
 
+    //the rest of the initialization of the JFrame
     public void activate(){
         setTitle("MSListing");
         setSize(widthL,heightL);
@@ -65,10 +66,8 @@ public class MSListingView extends JFrame {
         add(bottom,BorderLayout.SOUTH);
 
         nameSearchProp = new JLabel("Search Property:");
-
         searchLengths = new JComboBox<>(new String[]{"Under 400K",
                                                      "401K-600K", "601K-800K", "800K-1M", "Over 1M"});
-
 
 
         go = new JButton("Go");
@@ -125,9 +124,10 @@ public class MSListingView extends JFrame {
         clear = new JButton("Clear");
 
         show.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(ActionEvent e){ //experimental lambda
+
                 area.setText(defaultHeader+"\n"+listOfProperties.getAllProperties());
+
             }
         });
 
@@ -160,6 +160,7 @@ public class MSListingView extends JFrame {
 
     }
 
+    //set the property list so we can call its methods
     public void setProperty(PropertyList properties){
         listOfProperties = properties;
     }

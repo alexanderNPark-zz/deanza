@@ -10,7 +10,7 @@ public class Test {
     }
 
     public static void etest(){
-        System.out.println(String.format("%-30s%-10f%-8d","h",1.0,2));
+       
     }
 
     public static void test(){

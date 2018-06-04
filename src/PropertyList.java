@@ -40,7 +40,7 @@ public class PropertyList {
 
     public void initialize(){
         try {
-            FileInputStream fis = new FileInputStream(new File("src/props.txt"));
+            FileInputStream fis = new FileInputStream(new File("props.txt"));
             BufferedReader br = new BufferedReader(new InputStreamReader(fis));
             while(true){
                 String line = br.readLine();
@@ -56,6 +56,7 @@ public class PropertyList {
         }
     }
 
+    // builds "Property" object using the tokens from file and puts it in front of linked list
     public void setAndBuild(String[] tokens){
         if(tokens[0].equalsIgnoreCase("condo")){
             insert(new Condo(tokens[1],tokens[2],tokens[3],tokens[4]));
@@ -66,6 +67,8 @@ public class PropertyList {
 
     }
 
+
+    //gets all property data from linked list
     public String getAllProperties(){
         String result = "";
         Property temp = head;
@@ -76,6 +79,7 @@ public class PropertyList {
         return result+temp.toString();
     }
 
+    //gets all condos from property data
     public String getCondo(){
         String result = "";
         Property temp = head;
@@ -88,6 +92,7 @@ public class PropertyList {
         return result;
     }
 
+    //gets all SFH from property data
     public String getSingleFamilyHouse(){
         String result = "";
         Property temp = head;
@@ -100,6 +105,7 @@ public class PropertyList {
         return result;
     }
 
+    //gets all properties within given price range
     public String searchbyPriceRange(double min, double max){
         String result = "";
         Property temp = head;
