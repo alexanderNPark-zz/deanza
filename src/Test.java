@@ -1,17 +1,31 @@
 import java.io.*;
+import java.util.function.Function;
 
 import static java.lang.System.out;
+import static java.lang.Math.sqrt;
 
 public class Test {
 
-    public static void main(String[] args)
-    {
-        etest();
+    public static void main(String[] args) {
+        int i=3;
+        i*=0.1;
+        System.out.println(i);
     }
 
-    public static void etest(){
-       
+    public static void etest(int[] array){
+        for(int i=1; i<array.length;i++){
+            int index = i;
+            while(index>0 && array[index]<array[index-1]){
+                int temp = array[index];
+                array[index] = array[index-1];
+                array[index-1] = temp;
+                index--;
+            }
+        }
+
+
     }
+
 
     public static void test(){
         try {
