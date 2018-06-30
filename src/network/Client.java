@@ -11,7 +11,7 @@ public class Client implements Runnable{
 
     public static void main(String[] args){
 
-        try(Socket s = new Socket("localhost",2334)){
+        try(Socket s = new Socket("LAPTOP-ARK617N3",2334)){
             OutputStream os = s.getOutputStream();
             Thread input = new Thread(new Client(s.getInputStream(),os));
             input.start();
