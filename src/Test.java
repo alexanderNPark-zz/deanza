@@ -3,18 +3,25 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.function.Function;
 
+import static java.lang.System.console;
 import static java.lang.System.out;
 import static java.lang.Math.sqrt;
 
 public class Test {
 
     public static void main(String[] args) {
-        String path = "./"+(new SimpleDateFormat("MM_dd_yyyy__h_mm_a").format(new Date()))+"/";
-        out.println(path);
-        File dir = new File (path);
-        if(!dir.exists()){
-            dir.mkdir();
+        System.out.println(constantMemFib(5));
+
+    }
+
+    public static int constantMemFib(int n){
+        int curr=1,prev=0,index=0;
+        while(index<n){
+            curr+=prev;
+            prev=curr-prev;
+            index++;
         }
+        return curr;
     }
 
     public static void etest(int[] array){

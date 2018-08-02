@@ -7,7 +7,7 @@ public class Stack_A<T> {
 
     T[] content;
     int size;
-    int pointer=0;
+    int pointer=-1;
 
     public Stack_A(int size){
         this.size = size;
@@ -20,6 +20,10 @@ public class Stack_A<T> {
             resize();
         }
         content[++pointer]=element;
+    }
+
+    public boolean isEmpty(){
+        return pointer<0;
     }
 
     public void empty(){
@@ -50,13 +54,5 @@ public class Stack_A<T> {
 
     }
 
-    public static void main(String[] arg){
-        Stack_A<Integer> a = new Stack_A<Integer>(5);
-        for(int i=0;i<10;i++){
-            a.push(i);
-        }
-        for(int i=0;i<10;i++){
-            System.out.println(a.pop());
-        }
-    }
+
 }

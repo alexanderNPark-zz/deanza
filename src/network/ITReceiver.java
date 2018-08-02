@@ -21,9 +21,29 @@ public class ITReceiver {
             String content = "";
             String line = "";
             while ((line = br.readLine())!= null && !(line.equals(delimiter)))content+=line+"\n";
+            if(line==null){
+                return null;
+            }
             return content;
         }catch (Exception e){
             e.printStackTrace();
+            System.out.println("Disconnected");
+            return "";
+        }
+    }
+
+    public String readLineUntilDelimString(String customDelimiter){
+        try {
+            String content = "";
+            String line = "";
+            while ((line = br.readLine())!= null && !(line.equals(customDelimiter)))content+=line;
+            if(line==null){
+                return null;
+            }
+            return content;
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Disconnected");
             return "";
         }
     }
@@ -34,5 +54,13 @@ public class ITReceiver {
 
     public void setIs(InputStream is) {
         this.is = is;
+    }
+
+    public InputStream getIs() {
+        return is;
+    }
+
+    public BufferedReader getBr() {
+        return br;
     }
 }

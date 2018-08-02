@@ -21,7 +21,7 @@ public class Server {
     private BufferedReader br;
     private PrintWriter pw;
     private int img_port;
-    private  HashMap<String,ITReceiver> DELIMITER_TABLE = new HashMap<>();
+    private HashMap<String,ITReceiver> DELIMITER_TABLE = new HashMap<>();
 
 
 
@@ -61,39 +61,67 @@ public class Server {
         }catch (Exception e){}
         scan = new Scanner(System.in);
         initializeDelimiter();
-
-
+        boolean sentProperly = true;
+        String lastCommand = "";
+        Socket server=null;
         while(true){
-            Socket server=null;
-            try {
-                server=ss.accept();
-                curIn = server.getInputStream();
-                curOut = server.getOutputStream();
-                initializeStreams();
 
-                String command = "";
-                while(!((command = promptCommand()).equals(endCommand))){
-                    sendCommand(command);
+            try {
+                server = ss.accept();
+                System.out.println("RECEIVING");
+                while(true) {
+
+                    if (sentProperly) {
+                        lastCommand = promptCommand();
+                        if (lastCommand.equals("reboot")) {
+                            sentProperly = true;
+                            server.close();
+                            break;
+                        }
+
+                    }
+                    sentProperly = false;
+                    curIn = server.getInputStream();
+                    curOut = server.getOutputStream();
+                    initializeStreams();
+
+
+                    sendCommand(lastCommand);
+
+                    //System.out.println(readUntilGone());
                     chooseDelimAndExecute();
+                    sentProperly = true;
                 }
-                sendEndCommand();
-                server.close();
+
+
             } catch (IOException e) {
-                System.out.println("Disconnected");
                 continue;
             }
         }
 
     }
 
-    public void sendCommand(String command){
+    public String readUntilGone() throws IOException{
+        String line = "";
+        String content = "";
+        while ((line = br.readLine())!= null && !(line.equals(delimiter)))content+=line+"\n";
+        if(line==null){
+            throw new IOException("DCED");
+        }
+        return content.replace(delimiter,"");
+    }
+
+    public void sendCommand(String command) throws IOException{
+
         pw.println(command);
         pw.println(delimiter);
-        if(command.equals("screen")){
+        if (command.equals("screen")) {
             pw.println(img_port);
             pw.println(delimiter);
         }
         pw.flush();
+
+
     }
 
     public void sendEndCommand(){
@@ -106,10 +134,23 @@ public class Server {
     public void chooseDelimAndExecute() throws IOException {
 
         String token = br.readLine();
+        if(token==null){
+            throw new IOException("NULL DELIMTER");
+        }
         ITReceiver parser = DELIMITER_TABLE.get(token);
-        System.out.println(parser.readLineUntilDelimString());
+        if(parser==null){
+            System.out.println(token);
+            return;
+        }
+        String result = parser.readLineUntilDelimString();
+        if(result==null){
+            throw new IOException("Fucked up");
+        }
+        System.out.println(result);
 
     }
+
+
 
 
 
